@@ -1,6 +1,6 @@
 // DEBUG=app:* node scripts/mongo/seedUsers.js
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const chalk = require('chalk');
 const debug = require('debug')('app:scripts:users');
 const MongoLib = require('../../lib/mongo');
@@ -51,8 +51,8 @@ async function seedUsers() {
     await Promise.all(promises);
     return process.exit(0);
   } catch (error) {
-    console.log(error.message);
-    debug(chalk.red(error.message));
+    //console.error(error.message);
+    debug(chalk.red(error));
     process.exit(1);
   }
 }
